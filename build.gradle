@@ -194,23 +194,10 @@ task fatJar(type: ShadowJar) {
     }
 }
 
-artifacts {
-    archives jar
-    archives sourcesJar
-    archives testsJar
-    archives mlserviceJar
-    archives shadowJar
-    archives fatJar
-}
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.java
-            artifact sourcesJar
             artifact shadowJar
-            artifact fatJar
-            artifact mlserviceJar
             pom {
                 name = 'Access Transformers'
                 description = 'Transforms class member access based on specification files'
